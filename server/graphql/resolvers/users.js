@@ -64,16 +64,14 @@ module.exports = {
             if(user) {
                 throw new UserInputError("username is Taken", {
                     errors: {
-                        usename: 'This username is taken' //will be used to display errors on the form on the frontend
+                        username: 'This username is taken' //will be used to display errors on the form on the frontend
                     }
                 })
             }
             
             //hash password and create an auth token
-            
             // Hash password
             const hashedPassword = await bcrypt.hash(password, 12);
-
             //Create user instance
             const newUser = new User({
                 email,
@@ -81,12 +79,9 @@ module.exports = {
                 password: hashedPassword,
                 createdAt: new Date().toISOString()
             })
-
             //Save to database
             const res = await newUser.save();
-
             //Generate token (add your secret key)
-
             const token = generateToken(res)
 
             //token stored in a function to be accessible anywhere
