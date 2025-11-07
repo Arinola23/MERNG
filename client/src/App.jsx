@@ -1,33 +1,43 @@
-import React  from 'react';
-import {BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import { Container } from 'semantic-ui-react';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Container } from "fomantic-ui-react";
 
-import 'semantic-ui-css/semantic.min.css' 
-import './App.css'
+import "semantic-ui-css/semantic.min.css";
+import "./App.css";
 
-import MenuBar from './components/MenuBar'
-import Home from './pages/Home'
-import Login from './pages/Login'
-import Register from './pages/Register'
-import LogOut from './pages/Logout';
+import { AuthProvider } from "./context/auth";
+import  AuthRoute  from './util/AuthRoute'
+
+import MenuBar from "./components/MenuBar";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
+import SinglePost from  './pages/SinglePost'
 
 function App() {
-
   return (
     <>
-      <Router>
-        <Container>
-          <MenuBar/>
-        <Routes>
-          <Route path='/' element={<Home/>}/>
-          <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
-          <Route path='/logout' element={<LogOut/>}/>
-        </Routes>
-        </Container>
-      </Router>
+      <AuthProvider>
+        <Router>
+          <Container>
+            <MenuBar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/login" element={<AuthRoute element={<Login />} />} />
+              <Route path="/register" element={<AuthRoute element={<Register />} />} />
+              <Route path="/post/:postId" element={<SinglePost/>}/>
+            </Routes>
+
+            {/* <Routes>
+              <Route path="/" element={<Home />} />
+              <AuthRoute path="/login" element={<Login />} />
+              <AuthRoute path="/register" element={<Register />} />
+            </Routes> */}
+          </Container>
+        </Router>
+      </AuthProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

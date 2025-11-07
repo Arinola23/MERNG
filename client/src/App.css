@@ -1,0 +1,30 @@
+.page-title {
+  display: block !important;
+  text-align: center;  
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.form-container{
+width: 400px;
+margin: auto;
+}
+
+.register-btn {
+  margin-top: 20px !important;
+}
+
+.ui.error.message {
+  background-color: #ffe6e6;
+  color: #b30000;
+  border: 1px solid #ff9999;
+  border-radius: 6px;
+  padding: 10px 15px;
+  margin-top: 15px;
+}
+
+.ui.teal.button:focus,
+.ui.teal.buttons .button:focus {
+  background-color: #00b5ad;
+}
+
