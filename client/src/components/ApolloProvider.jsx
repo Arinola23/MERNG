@@ -6,7 +6,7 @@ import { setContext } from '@apollo/client/link/context';
 
 
 const httpLink = new HttpLink({
-  uri: "https:merng-server-p8s6.onrender.com/graphql", // ✅ Usually includes /graphql
+  uri: "https:merng-server-p8s6.onrender.com", // ✅ Usually includes /graphql
 });
 
 // Use the deployed backend in production, localhost in development
