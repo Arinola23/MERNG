@@ -6,8 +6,8 @@ import { SetContextLink } from '@apollo/client/link/context';
 
 
 const httpLink = new HttpLink({
-  //  uri: "https:merng-server-p8s6.onrender.com", // ✅ Usually includes /graphql
-    uri:'http://localhost:5000'
+   uri: "https:merng-server-p8s6.onrender.com", // ✅ Usually includes /graphql
+    // uri:'http://localhost:5000'
 });
 
 
