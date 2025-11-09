@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import { Card, Icon, Label } from fomantic-ui-react
 import {
   CardMeta,
   CardHeader,

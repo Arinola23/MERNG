@@ -2,7 +2,6 @@ import React , { useContext } from "react";
 import { useQuery,  } from "@apollo/client/react";
 
 // import gql from "graphql-tag";
-// import { Grid, Image } from 'fomantic-ui-react'
 import { GridRow, GridColumn, Grid, Image, TransitionGroup } from 'semantic-ui-react'
 
 import PostCard from '../components/PostCard'

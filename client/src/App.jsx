@@ -1,7 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Container } from "fomantic-ui-react";
-
 import "semantic-ui-css/semantic.min.css";
 import "./App.css";
 
@@ -19,7 +17,6 @@ function App() {
     <>
       <AuthProvider>
         <Router>
-          <Container>
             <MenuBar />
             <Routes>
               <Route path="/" element={<Home />} />
@@ -33,7 +30,6 @@ function App() {
               <AuthRoute path="/login" element={<Login />} />
               <AuthRoute path="/register" element={<Register />} />
             </Routes> */}
-          </Container>
         </Router>
       </AuthProvider>
     </>

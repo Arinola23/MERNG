@@ -1,8 +1,6 @@
 import React, { useContext, useState } from "react";
-// import { MenuMenu, MenuItem, Menu, Segment } from 'fomantic-ui-react'
 import { MenuMenu, MenuItem, Menu } from "semantic-ui-react";
 
-// import { MenuMenu, MenuItem, Menu } from 'fomantic-ui-react'
 import { AuthContext } from "../context/auth";
 import { Link } from "react-router-dom";
 
