@@ -2,27 +2,35 @@ import React from "react";
 import App from "../App";
 import { ApolloProvider } from '@apollo/client/react';
 import { ApolloClient, InMemoryCache, HttpLink } from '@apollo/client'
-import { setContext } from '@apollo/client/link/context';
+import { SetContextLink } from '@apollo/client/link/context';
 
 
 const httpLink = new HttpLink({
-  uri: "https:merng-server-p8s6.onrender.com", // ✅ Usually includes /graphql
+  //  uri: "https:merng-server-p8s6.onrender.com", // ✅ Usually includes /graphql
+    uri:'http://localhost:5000'
 });
 
-// Use the deployed backend in production, localhost in development
-// const GRAPHQL_URI =
-//   import.meta.env.MODE === "development"
-//     ? "http://localhost:5000/graphql"
-//     : "https://merng-server-p8s6.onrender.com/graphql";
 
-const authLink = setContext(() => {
-  const token = localStorage.getItem('jwtToken')
-    return {
-      headers: {
-        Authorization: token ? `Bearer ${token}` : ""
-      }
-    }
-})
+// const authLink = setContextLink(() => {
+//   const token = localStorage.getItem('jwtToken')
+//     return {
+//       headers: {
+//         Authorization: token ? `Bearer ${token}` : ""
+//       }
+//     }
+// })
+
+const authLink = new SetContextLink((prevContext, currentContext) => {
+  const token = localStorage.getItem("jwtToken");
+  return {
+    ...currentContext,
+    headers: {
+      ...currentContext.headers,
+      Authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
 
 const client = new ApolloClient({
   link: authLink.concat(httpLink),
