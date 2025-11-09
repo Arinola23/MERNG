@@ -19,7 +19,7 @@ const Register = () => {
     //   navigate("/");
     update(_, {data: {register: userData}}) {
       context.login(userData)  //we don't need to create another register funtion to use the data.
-      navigate("/");
+  setTimeout(() => navigate("/"), 0); // let React update context first
     },
    onError(err) {
       const errData = err.errors?.[0]?.extensions?.errors;

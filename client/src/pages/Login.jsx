@@ -21,7 +21,7 @@ const Login = () => {
 
      update(_, {data: {login: userData}}) {
       context.login(userData)
-      navigate("/");
+  setTimeout(() => navigate("/"), 0); // let React update context first
     },
    onError(err) {
       const errData = err.errors?.[0]?.extensions?.errors;
