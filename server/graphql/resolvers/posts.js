@@ -31,6 +31,12 @@ const { AuthenticationError, UserInputError} = require('apollo-server')
         },
 
         Mutation: {
+            //(parent, args, context, info)
+            //_ → parent (you’re not using it, so it’s replaced with _) 
+            // { postId } → the GraphQL arguments passed from the client
+            // context → a shared object that Apollo automatically passes to every resolver
+            // info → information about the query (rarely used)
+
             async createPost(_, {body}, context){
                 //this will run once the user passes the auth requirements from checkAuth before a post can be created by the user
                 const user  = checkAuth(context)
