@@ -48,7 +48,7 @@ const Home = () => {
 
     return (
      
-      <Grid columns={3}>
+      <Grid columns={3} style={{ marginLeft: '50px'}}>
       <GridRow className="page-title">
         <h1>Recent Posts</h1>
       </GridRow>

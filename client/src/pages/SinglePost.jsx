@@ -71,7 +71,7 @@ const getPost = data?.getPost;
     } = getPost;
 
     postMarkUp = (
-      <Grid>
+      <Grid style={{marginTop: "20px", marginLeft: '50px'}}>
         <GridRow>
           <GridColumn width={2}>
             <Image
